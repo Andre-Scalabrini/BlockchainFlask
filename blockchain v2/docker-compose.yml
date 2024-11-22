@@ -1,0 +1,148 @@
+version: '3.9'
+
+services:
+  # Serviço do Node-Master (Backend)
+  node-master:
+    build: ./blockchain_node
+    container_name: node-master
+    ports:
+      - "5000:5000" # Porta exposta para comunicação
+    networks:
+      - blockchain_network
+
+  # Serviço do Frontend
+  frontend:
+    build: ./frontend
+    container_name: blockchain-frontend
+    ports:
+      - "3000:3000" # Porta exposta para o navegador
+    depends_on:
+      - node-master
+    networks:
+      - blockchain_network
+
+  # Serviços dos agentes
+  agent-1:
+    build: ./agents
+    container_name: agent-1
+    depends_on:
+      - node-master
+    networks:
+      - blockchain_network
+
+  agent-2:
+    build: ./agents
+    container_name: agent-2
+    depends_on:
+      - node-master
+    networks:
+      - blockchain_network
+
+  agent-3:
+    build: ./agents
+    container_name: agent-3
+    depends_on:
+      - node-master
+    networks:
+      - blockchain_network
+
+  agent-4:
+    build: ./agents
+    container_name: agent-4
+    depends_on:
+      - node-master
+    networks:
+      - blockchain_network
+
+  agent-5:
+    build: ./agents
+    container_name: agent-5
+    depends_on:
+      - node-master
+    networks:
+      - blockchain_network
+
+  agent-6:
+    build: ./agents
+    container_name: agent-6
+    depends_on:
+      - node-master
+    networks:
+      - blockchain_network
+
+  agent-7:
+    build: ./agents
+    container_name: agent-7
+    depends_on:
+      - node-master
+    networks:
+      - blockchain_network
+
+  agent-8:
+    build: ./agents
+    container_name: agent-8
+    depends_on:
+      - node-master
+    networks:
+      - blockchain_network
+
+  agent-9:
+    build: ./agents
+    container_name: agent-9
+    depends_on:
+      - node-master
+    networks:
+      - blockchain_network
+
+  agent-10:
+    build: ./agents
+    container_name: agent-10
+    depends_on:
+      - node-master
+    networks:
+      - blockchain_network
+
+  agent-11:
+    build: ./agents
+    container_name: agent-11
+    depends_on:
+      - node-master
+    networks:
+      - blockchain_network
+
+  agent-12:
+    build: ./agents
+    container_name: agent-12
+    depends_on:
+      - node-master
+    networks:
+      - blockchain_network
+
+  agent-13:
+    build: ./agents
+    container_name: agent-13
+    depends_on:
+      - node-master
+    networks:
+      - blockchain_network
+
+  agent-14:
+    build: ./agents
+    container_name: agent-14
+    depends_on:
+      - node-master
+    networks:
+      - blockchain_network
+
+  agent-15:
+    build: ./agents
+    container_name: agent-15
+    depends_on:
+      - node-master
+    networks:
+      - blockchain_network
+
+# Rede personalizada para interconectar todos os serviços
+networks:
+  blockchain_network:
+    driver: bridge
